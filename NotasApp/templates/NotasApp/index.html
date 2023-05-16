@@ -1,0 +1,20 @@
+{% extends 'NotasApp/base.html' %} 
+
+{% block body %}
+       <main class="container py-5">
+        <section class="card card-body">
+            <h1 class="display-1 text-center mb-5" >Bienvenido a mi app de Notas</h1>
+            {% for nota in Notas %}
+            <div class="list-group">
+                <a href="{% url 'details' nota.id %}" class="list-group-item list-group-item-action mb-2">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1 text-success">{{nota.nombre}}</h4>
+                    <small class="text-muted">{{nota.fecha}}</small>
+                  </div>
+                  <p class="mb-1 text-truncate">{{nota.contenido}}</p>
+                </a>
+              </div>
+            {% endfor%}
+           </section>
+       </main>
+{% endblock %}
